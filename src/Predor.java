@@ -22,10 +22,11 @@ public static int prekoracitveHitrosti(String imeVhodne, String imeIzhodne) thro
 			String vrstica = vhodna.readLine().trim();
 			if (vrstica.equals("")) continue;
 			String[] besede = vrstica.split(" ");
-			int cas = Integer.parseInt(besede[0]) - Integer.parseInt(besede[1]);
+			int cas = Integer.parseInt(besede[1]) - Integer.parseInt(besede[0]);
 			double povprecnaHitrost = 622.0 / cas * 3.6;
 			if (povprecnaHitrost > 80.0) {
-				izhodna.println(besede[2] + " " + povprecnaHitrost);
+				double zaokrozeno = Math.round(povprecnaHitrost * 100.0) / 100.0;
+				izhodna.println(besede[2] + " " + zaokrozeno);
 				steviloKrsitev++;
 			}
 		}
